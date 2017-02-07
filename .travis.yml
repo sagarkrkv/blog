@@ -10,8 +10,8 @@ env:
 
 cache:
     bundler: true
-     directories:
-         - node_modules
+    directories:
+        - node_modules
 gemfile: travisGemfile
 before_install:
   - nvm install v6.9.1
