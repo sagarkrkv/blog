@@ -1,0 +1,20 @@
+---
+body_class: home--hero
+layout: layout
+---
+
+section.hero
+  = partial 'partials/nav'
+  .hero__inner
+    h1.hero__name
+      | Vidya Sagar Kalvakunta
+    h2.hero__desc
+      | Programmer
+      br/
+      small
+        | Masters in CS at Indiana University.
+    .action-buttons
+      = link_to t(:blog), '/blog', class: 'button-ghost', role: 'button'
+      = link_to t(:about_me), '/ab', class: 'button-ghost', role: 'button'
+
+    = partial 'partials/social'

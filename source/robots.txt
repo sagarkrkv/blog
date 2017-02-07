@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /zetsu/
+Disallow: /lora/
+Disallow: /mug/
+Disallow: /end2end/
+Disallow: /simplest/
+Disallow: /dotX/
+Disallow: /jekyll-powerful/

@@ -1,0 +1,8 @@
+footer.footer
+  small
+    = "Created by #{link_to site_author, social_github, :target => :blank}, "
+    = "using #{link_to "middlemanapp.com", "http://middlemanapp.com/", :target => :blank, :rel => :nofollow} "
+    = "and #{link_to "theme", "http://github.com/nandomoreirame/nandomoreirame.github.io", :target => :blank, :rel => :nofollow}"
+
+script#dsq-count-scr async="" data-cfasync="false" src="//#{disqus_shortname}.disqus.com/count.js"
+= stylesheet_link_tag 'syntax'
