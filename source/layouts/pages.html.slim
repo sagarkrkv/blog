@@ -9,6 +9,7 @@ html.no-js lang=t(:lang)
     - if current_page.data.body_class
       - body_class += ' ' + current_page.data.body_class
     - body_class = body_class.sub(/[_]/, '-')
+    
   body class="#{body_class}"
     = partial "partials/header"
     main.main role="main"

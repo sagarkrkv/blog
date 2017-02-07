@@ -89,6 +89,7 @@ activate :autoprefixer do |config|
   # config.ignore   = ['source/assets/stylesheets/vendors/']
 end
 
+
 # Build-specific configuration
 configure :build do
   activate :minify_css
@@ -97,7 +98,7 @@ configure :build do
   activate :gzip
   # activate :asset_hash
   activate :cache_buster
-  set :google_analytics_account, 'GTM-MGTNNT5'
+  set :google_analytics_account, 'UA-91533048-1'
   activate :automatic_image_sizes
   activate :automatic_alt_tags
 end
