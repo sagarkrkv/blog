@@ -22,7 +22,7 @@ script: bundle exec rake travis:script
 deploy:
   provider: pages
   local_dir: build
-  repo: sagarkrkv.github.io
+  repo: sagarkrkv/sagarkrkv.github.io
   target-branch: main
   skip_cleanup: true
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
