@@ -1,4 +1,4 @@
-# [sagarkrkv.github.io](http://sagarkrkv.github.io/) [![Build Status](https://travis-ci.org/sagarkrkv/blog?branch=master)](https://travis-ci.org/sagarkrkv/blog)
+## [sagarkrkv.github.io](http://sagarkrkv.github.io/) <a href="https://travis-ci.org/sagarkrkv/blog"><img src="https://travis-ci.org/sagarkrkv/blog.svg" alt="Build Status"></a> [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE)
 
 
 
