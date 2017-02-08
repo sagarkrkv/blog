@@ -7,7 +7,8 @@ rvm:
 env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-
+git:
+  depth: 1
 cache:
     bundler: true
     directories:
