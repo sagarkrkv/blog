@@ -1,12 +1,12 @@
 ---
 title: "Cloud Agnostic Load Balancing and High Availability of Microservices"
-presentation: “Developing an architecture that is highly availa”
+presentation: “Developing an architecture that is highly available and load balanced using Consul and Fabio or HAProxy”
 description: "Comparing "
 date: 2017-02-03 17:52
 comments: true
 image: /assets/images/posts/2015/08/meu-ambiente-gulpjs.png
 categories:
- - Spring 17
+ - Distributed Computing
 tags:
  - Airavata
  - API Server
@@ -25,8 +25,8 @@ the network location viz., IP address and port number of these instances.
 </div>
 
 
-##Source Registry
-Here a service registry plays a key role, as it constantly keeps track of the available services.The network location of a service instance is registered with the service registry when it starts up. It is removed from the service registry when the instance terminates. The service instance’s registration is typically refreshed periodically using a heartbeat mechanism.
+##Service Registry
+A service registry plays a key role, as it continuosly keeps track of the available services.The network location of a service instance is registered with the service registry when it starts up. It is removed from the service registry when the instance terminates. The service instance’s registration is typically refreshed periodically using a heartbeat mechanism.
 
 
 <div class="image">
@@ -45,6 +45,8 @@ Multi-Datacenter support allows us to spread service instances across multiple c
 Inbuilt Service Discovery allows clients to directly discover services directly using a DNS or HTTP interface.
 
 More details on Consul's multi-datacenter architecture can be accessed <%= link_to 'here', 'https://www.consul.io/docs/internals/architecture.html'%>.
+
+
 
 <div class="image">
   <%= image_tag '/assets/images/posts/2017/02/Instance.png', alt: 'architecture inside cloud instance' %>
