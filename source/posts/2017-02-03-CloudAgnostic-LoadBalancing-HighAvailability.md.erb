@@ -99,6 +99,7 @@ To enable load balancing with Fabio we have to add a tag beginning with `urlpref
 healthcheck while registering the microservices with Consul. Fabio only adds services with a passing healthcheck and a valid tag.
 
 Register one urlprefix- tag per host/path prefix it serves, e.g.:
+
 ```
   urlprefix-/microserviceA  --> localhost:9999/microserviceA
 
@@ -106,6 +107,7 @@ Register one urlprefix- tag per host/path prefix it serves, e.g.:
 
   urlprefix-mysite.com/  --> --> localhost:9999/mysite.com/
 ```
+
 By default Fabio listens on port 9999, so any traffic received at that port with their path beginning with a valid path
 will be loadbalanced among the matching services.
 
