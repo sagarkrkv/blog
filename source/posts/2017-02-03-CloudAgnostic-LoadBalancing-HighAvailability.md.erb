@@ -101,7 +101,9 @@ healthcheck while registering the microservices with Consul. Fabio only adds ser
 Register one urlprefix- tag per host/path prefix it serves, e.g.:
 ```
   urlprefix-/microserviceA  --> localhost:9999/microserviceA
+
   urlprefix-microserviceB/data --> localhost:9999/microserviceB/data
+
   urlprefix-mysite.com/  --> --> localhost:9999/mysite.com/
 ```
 By default Fabio listens on port 9999, so any traffic received at that port with their path beginning with a valid path
