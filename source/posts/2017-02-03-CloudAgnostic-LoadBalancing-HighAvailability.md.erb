@@ -54,6 +54,8 @@ More details on Consul's multi-datacenter architecture can be accessed <%= link_
 
 **Consul Setup** :
 
+Setup instructions for dockerized Consul v0.7.5
+
 ```
   # Allow alias to be used in non-interactive shell
   shopt -s expand_aliases
@@ -77,11 +79,12 @@ More details on Consul's multi-datacenter architecture can be accessed <%= link_
     queried is in the same DataCenter, the LAN IP address is retrieved, and if its from a different datacenter the WAN IP
     address is retrieved.
   * `agent` Consul agent is run
-  * `server` The agent is run in server mode
+  * `-server` The agent is run in server mode
   * `-bootstrap-expect` The number of consul servers that will be present in the cluster, this is needed for
     maintaining the quorum.
   * `-advertise` the IP address that will be broadcasted to the Consul cluster. (A single IP address can also be broadcasted either WAN or LAN)
   * `-advertise-wan` the WAN IP address that will be broadcasted to the Consul cluster.
+  * `-ui` enables web UI
 
 
 
@@ -92,13 +95,14 @@ deploying applications managed by Consul. Fabio watches services in consul and r
 change without interrupting existing connections. So in that sense it provides true zero-downtime compared to
 HAProxy+Consul-Template.
 
-To enable load balancing with Fabio we have to add one `urlprefix-` tag while registering the microservices with Consul.
+To enable load balancing with Fabio we have to add a tag beginning with `urlprefix-` and enable
+healthcheck while registering the microservices with Consul. Fabio only adds services with a passing healthcheck and a valid tag.
 
 Register one urlprefix- tag per host/path prefix it serves, e.g.:
 ```
-urlprefix-/microserviceA  --> localhost:9999/microserviceA
-urlprefix-microserviceB/data --> localhost:9999/microserviceB/data
-urlprefix-mysite.com/  --> --> localhost:9999/mysite.com/
+  urlprefix-/microserviceA  --> localhost:9999/microserviceA
+  urlprefix-microserviceB/data --> localhost:9999/microserviceB/data
+  urlprefix-mysite.com/  --> --> localhost:9999/mysite.com/
 ```
 By default Fabio listens on port 9999, so any traffic received at that port with their path beginning with a valid path
 will be loadbalanced among the matching services.
@@ -107,5 +111,31 @@ Fabio web user interface can be accessed at port 9998.
 
 <div class="image">
   <%= image_tag 'http://image.slidesharecdn.com/201601dockerfinal-160113214750/95/amazon-ecs-march-2016-12-638.jpg?cb=1456899375', alt: 'Consul + fabio' %>
-  [Image Source](http://www.slideshare.net/JulienSIMON5/running-docker-clusters-on-aws-june-2016)
+  <%= link_to 'Image Source', 'http://www.slideshare.net/JulienSIMON5/running-docker-clusters-on-aws-june-2016' %>
+</div>
+
+**Fabio Setup** :
+
+```
+  sudo docker run --restart unless-stopped --net=host  -d magiconair/fabio
+```
+
+## HAProxy + ConsulTemplate
+
+Consul Template is a service that constantly queries a Consul or Vault cluster and updates any number of
+specified templates on the file system. As an added bonus, it can optionally run arbitrary commands when the
+update process completes.
+
+<div class="image">
+  <%= image_tag 'https://image.slidesharecdn.com/untitled-150309081332-conversion-gate01/95/consul-serviceoriented-at-scale-44-638.jpg', alt: 'Consul + fabio' %>
+  <%= link_to 'Image Source', 'http://www.slideshare.net/InfoQ/consul-serviceoriented-at-scale' %>
+</div>
+
+[Consul Template Config File](https://github.com/airavata-courses/spring17-API-Server/blob/loadBalancer/haproxy-config/haproxy.hcl)
+[HAProxy Template File](https://github.com/airavata-courses/spring17-API-Server/blob/loadBalancer/haproxy-config/haproxy.ctmpl)
+
+
+<div class="image">
+  <%= image_tag '/assets/images/posts/2017/02/blog-consul-template-haproxy.png', alt: 'Consul + Fabio' %>
+  <%= link_to 'Image Source', 'https://developer.epages.com/blog/2015/09/28/service-discovery-with-consul-registrator-and-haproxy.html' %>
 </div>
