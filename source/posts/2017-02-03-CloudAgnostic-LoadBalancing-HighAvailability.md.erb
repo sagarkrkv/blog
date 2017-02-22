@@ -113,10 +113,10 @@ will be loadbalanced among the matching services.
 
 Fabio web user interface can be accessed at port 9998.
 
-<div class="image">
+<!-- <div class="image">
   <%= image_tag 'http://image.slidesharecdn.com/201601dockerfinal-160113214750/95/amazon-ecs-march-2016-12-638.jpg?cb=1456899375', alt: 'Consul + fabio' %>
   <%= link_to 'Image Source', 'http://www.slideshare.net/JulienSIMON5/running-docker-clusters-on-aws-june-2016' %>
-</div>
+</div> -->
 
 **Fabio Setup** :
 
@@ -135,9 +135,30 @@ update process completes.
   <%= link_to 'Image Source', 'http://www.slideshare.net/InfoQ/consul-serviceoriented-at-scale' %>
 </div>
 
+**Consul Template Setup** :
+
+```
+
+  # install HAProxy
+  sudo yum install -y haproxy # yum works for fedora/centos/rhel based systems, use apt-get for debian based systems
+
+  # install consul-template
+  cd /tmp
+  wget https://releases.hashicorp.com/consul-template/0.18.1/consul-template_0.18.1_linux_amd64.tgz
+  tar -xvzf consul-template_0.18.1_linux_amd64.tgz
+  sudo chmod a+x consul-template
+  sudo mv consul-template /usr/bin/consul-template
+  rm -rf /tmp/consul-template_0.18.1_linux_amd64.tgz
+
+```
+
 [Consul Template Config File](https://github.com/airavata-courses/spring17-API-Server/blob/loadBalancer/haproxy-config/haproxy.hcl)
+
+
+
 [HAProxy Template File](https://github.com/airavata-courses/spring17-API-Server/blob/loadBalancer/haproxy-config/haproxy.ctmpl)
 
+To start the consul template `nohup sudo consul-template -config=haproxy-config/haproxy.hcl &> ctmpl.log & `
 
 <div class="image">
   <%= image_tag '/assets/images/posts/2017/02/blog-consul-template-haproxy.png', alt: 'Consul + Fabio' %>
