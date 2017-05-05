@@ -1,0 +1,63 @@
+---
+title: "Assignment 3"
+presentation: “Evaluating the use of Ansible for provisioning”
+description: "Comparing "
+date: 2017-03-02 16:52
+comments: true
+categories:
+ - AiravataCourses
+tags:
+ - Airavata
+ - Devops
+
+---
+
+
+##Problem Statement
+To determine the best solution to  provision infrastructure in a multi-datacenter environment.
+
+###Possible Solutions
+
+Use Terraform or Ansible for infrastructure provisioning.
+
+
+###Solution Evaluations
+
+Ansible is a very popular configuration management tool which can also be used to create and manage infrastructure.
+While Terraform is a orchestration tool, whose specific purpose is to create and manage infrastructure.
+
+ The major difference between them is that Ansible encourages a procedural style where you have to write code that
+ specifies, step-by-step, how to achieve some desired end state. While Terraform uses a declarative style where
+you write code that specifies just your desired end state and Terraform figures out how to achieve that.
+
+I referenced several Ansible playbooks to create a playbook that is capable of creating an autoscaling
+infrastructure on AWS. My observation upon using Ansible is that we have to manually write code that evaluates
+every variable/value of the existing deployment against the variables present in the configuration file and decide
+whether the configuration has changed and make changes accordingly. Ansible places a lot of responsibilty on the
+developer to make sure there aren't any major bugs in the playbook that may result in an unstable infrastructure.
+
+Comparatively Terraform standardizes this process and crowd sources this responsibilty of finding and
+fixes any potential bugs to the open-source community and devolpers using Terraform as a whole.
+
+
+Terraform was evaluated in detail by Anuj visit https://anujbhan.github.io/blogs/DevOps-tool-Comparison.
+
+
+###Conclusion
+
+Terraform seems to be the best choice for creating immutable infrastructure.
+
+###Wiki for Code Instructions
+
+
+###My Git Commits for this Project:
+
+
+###My Discussions on the Apache Airavata Developer List
+No discussions.
+
+###My Jira Entries
+No Jira entries were needed.
+
+###My Apache Airavata Pull Requests
+No Airavata Pull Requests.
