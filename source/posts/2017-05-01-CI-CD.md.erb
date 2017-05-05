@@ -1,0 +1,120 @@
+---
+title: "Assignment 4-5-6"
+presentation: “Evaluating solutions for Continuous Integration/Continuous Deployment”
+date: 2017-05-01 17:22
+comments: true
+categories:
+ - AiravataCourses
+tags:
+ - Airavata
+ - Devops
+
+---
+
+
+##Problem Statement
+To determine the best solution for Continuous Integration/Continuous Deployment in a multi-datacenter environment.
+
+###Possible Solutions
+
+**Continuous integration:** Its the process of automatically building the appropriate
+environment and testing the software on a every commit. Two most popular CI tools are.
+  * Travis CI
+  * Jenkins
+
+  <div class="image">
+    <%= image_tag '/assets/images/posts/2017/05/CI.jpg', alt: 'Continuous Integration' %>
+  </div>
+
+**Continuous deployment:** The process of deployment of updates on the production environment while
+ensuring high availability and rollover capability in case of failures.
+  * Spinnaker
+  * Jenkins Master/Slave
+  <div class="image">
+    <%= image_tag '/assets/images/posts/2017/05/CD.png', alt: 'Continuous Deployment' %>
+  </div>
+
+  This blog gives a good overview of how CI/CD works
+  in an real time environment https://engineering.quora.com/Continuous-Deployment-at-Quora.
+
+  The High Scalability blog has been invaluable in learning more about the real life architecture
+  at tech giants and learn more about the intricacies involved. http://highscalability.com/all-time-favorites/
+
+###Solution Evaluations
+
+** Travis CI **
+
+Travis CI is continuous integration as a service that is
+free for all open projects on Github. Presently, Airavata’s GitHub repo
+has Travis CI builds enabled, that is, whenever a pull request is
+submitted by a developer, Travis CI builds and tests the whole
+Airavata project using Maven.
+
+Pros:
+  * No need to create and maintain a our own CI server.
+  * Very reliable, as it is maintained and supported commercially.
+  * Easy configuration for build and test.
+
+Cons:
+  * No fine grained control over the CI/CD pipelines.
+  * Debugging is slightly difficult.
+  * Lacks support for Continuous Deployment to OpenStack
+
+**Jenkins**
+
+Jenkins is an open source automation server which can
+be used for Continuous Integration. It has numerous plugins which can
+be used to extend it into a full fledged CI/CD server.
+
+Pros:
+  * Very popular, with lots of community support.
+  * Large collection of plugins make it easy to achieve fine
+  grained control over the process.
+  * Able to create complex pipelines that supports multiple third
+  party Continuous Deployment tools such as Spinnaker .
+
+Cons:
+  * Have to create and maintain our own Jenkins master server.
+  * Initial setup and configuration may be time consuming and
+  difficult.
+  * Lacks the reliability of a maintained service such as Travis .
+
+**Spinnaker**
+Spinnaker is an open source multi-cloud Continuous
+Delivery platform started by Netflix. It provides a complete CI/CD
+pipeline when integrated with Jenkins. Its built on the concept of
+immutable infrastructure, i.e every instance in the cluster can only be
+destroyed but not altered after it is created.
+
+Pros:
+  * It has different modern deployment strategies viz blue-green,
+  canary, etc built-in.
+  * Its concept of immutable infrastructure makes the
+  deployment process very reliable.
+Cons:
+  * Difficult setup and lack of support.
+  * It freely creates and destroys infrastructure, which might end
+  using a lot of resources.
+  * Learning curve for new developers.
+
+  <div class="image">
+    <%= image_tag '/assets/images/posts/2017/05/spinnaker.png', alt: 'Continuous Deployment' %>
+  </div>
+
+
+###Conclusion
+
+Though Travis CI provides integrations to cloud providers like AWS,
+but it lacks support for in-house infrastructure and also OpenStack,
+hence makes no sense to invest time in Travis CI. Therefore, we
+recommend Jenkins for accomplishing the CI & CD implementations,
+especially because of the fine grained controls it provides through
+Jenkins pipelines and the support for continuous deployments through
+Jenkins slaves.
+
+Though Spinnaker seems to be full fledged solution, it lack proper
+documentation and its installation process is difficult. Its concept of
+constantly creating new instances and destroying old instances may not
+be suitable for Airavata as we may need to reuse existing reserved
+instances.Using Jenkins for Continuous Delivery using a master/slave
+configuration may seem to be the best option.
