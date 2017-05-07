@@ -1,5 +1,5 @@
 ---
-title: "Assignment 4-5-6"
+title: "Assignment 4-5"
 presentation: “Evaluating solutions for Continuous Integration/Continuous Deployment”
 date: 2017-05-01 17:22
 comments: true
@@ -51,11 +51,13 @@ submitted by a developer, Travis CI builds and tests the whole
 Airavata project using Maven.
 
 Pros:
+
   * No need to create and maintain a our own CI server.
   * Very reliable, as it is maintained and supported commercially.
   * Easy configuration for build and test.
 
 Cons:
+
   * No fine grained control over the CI/CD pipelines.
   * Debugging is slightly difficult.
   * Lacks support for Continuous Deployment to OpenStack
@@ -67,6 +69,7 @@ be used for Continuous Integration. It has numerous plugins which can
 be used to extend it into a full fledged CI/CD server.
 
 Pros:
+
   * Very popular, with lots of community support.
   * Large collection of plugins make it easy to achieve fine
   grained control over the process.
@@ -74,6 +77,7 @@ Pros:
   party Continuous Deployment tools such as Spinnaker .
 
 Cons:
+
   * Have to create and maintain our own Jenkins master server.
   * Initial setup and configuration may be time consuming and
   difficult.
@@ -87,11 +91,14 @@ immutable infrastructure, i.e every instance in the cluster can only be
 destroyed but not altered after it is created.
 
 Pros:
+
   * It has different modern deployment strategies viz blue-green,
   canary, etc built-in.
   * Its concept of immutable infrastructure makes the
   deployment process very reliable.
+
 Cons:
+
   * Difficult setup and lack of support.
   * It freely creates and destroys infrastructure, which might end
   using a lot of resources.
@@ -118,3 +125,8 @@ constantly creating new instances and destroying old instances may not
 be suitable for Airavata as we may need to reuse existing reserved
 instances.Using Jenkins for Continuous Delivery using a master/slave
 configuration may seem to be the best option.
+
+
+###My Discussions on the Apache Airavata Developer List
+
+[Link](https://lists.apache.org/thread.html/6fadedbae49ee1798ab0995b61f509a1655d9f75412a092776b3aea0@%3Cdev.airavata.apache.org%3E)
