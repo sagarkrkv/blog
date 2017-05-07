@@ -19,6 +19,7 @@ To determine the best solution for Continuous Integration/Continuous Deployment 
 
 **Continuous integration:** Its the process of automatically building the appropriate
 environment and testing the software on a every commit. Two most popular CI tools are.
+
   * Travis CI
   * Jenkins
 
@@ -28,8 +29,10 @@ environment and testing the software on a every commit. Two most popular CI tool
 
 **Continuous deployment:** The process of deployment of updates on the production environment while
 ensuring high availability and rollover capability in case of failures.
+
   * Spinnaker
   * Jenkins Master/Slave
+
   <div class="image">
     <%= image_tag '/assets/images/posts/2017/05/CD.png', alt: 'Continuous Deployment' %>
   </div>
@@ -42,7 +45,7 @@ ensuring high availability and rollover capability in case of failures.
 
 ###Solution Evaluations
 
-** Travis CI **
+**Travis CI**
 
 Travis CI is continuous integration as a service that is
 free for all open projects on Github. Presently, Airavata’s GitHub repo
@@ -84,6 +87,7 @@ Cons:
   * Lacks the reliability of a maintained service such as Travis .
 
 **Spinnaker**
+
 Spinnaker is an open source multi-cloud Continuous
 Delivery platform started by Netflix. It provides a complete CI/CD
 pipeline when integrated with Jenkins. Its built on the concept of
