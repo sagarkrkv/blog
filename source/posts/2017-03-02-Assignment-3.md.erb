@@ -31,6 +31,7 @@ While Terraform is a orchestration tool, whose specific purpose is to create and
 you write code that specifies just your desired end state and Terraform figures out how to achieve that.
 
 I referenced several open-source Ansible playbooks and modified the [ansible-auto-scaling-tutorial](https://github.com/atplanet/ansible-auto-scaling-tutorial)
+playbook to create an Airavata API-Server autoscaling infrastructure on AWS. My observation upon using Ansible is that we have to manually write code that evaluates
 every variable/value of the existing deployment against the variables present in the configuration file and decide
 whether the configuration has changed and make changes accordingly. Ansible places a lot of responsibilty on the
 developer to make sure there aren't any major bugs in the playbook that may result in an unstable infrastructure.
