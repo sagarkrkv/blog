@@ -35,6 +35,13 @@
     "@types/expect" "^1.20.4"
     "@types/node" "*"
 
+"@types/vinyl@^2.0.9":
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@types/vinyl/-/vinyl-2.0.9.tgz#5686de441312881498665744c1dcdffe80721ea5"
+  dependencies:
+    "@types/expect" "^1.20.4"
+    "@types/node" "*"
+
 abbrev@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -989,12 +996,16 @@ chalk@^1.0.0, chalk@^1.1.3:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
-chalk@^4.1.1, chalk@^4.1.2:
+chalk@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+chalk@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-5.3.0.tgz#67c20a7ebef70e7f3970a01f90fa210cb6860385"
 
 chokidar@^2.0.0:
   version "2.1.8"
@@ -1636,6 +1647,10 @@ each-props@^1.3.2:
   dependencies:
     is-plain-object "^2.0.1"
     object.defaults "^1.1.0"
+
+easy-transform-stream@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/easy-transform-stream/-/easy-transform-stream-1.0.1.tgz#faffdd1839a03d14d76e694bd2e6315551a6a215"
 
 editorconfig@^1.0.3:
   version "1.0.4"
@@ -2390,6 +2405,14 @@ gulp-notify@^4.0.0:
     plugin-error "^1.0.1"
     through2 "^4.0.2"
 
+gulp-plugin-extras@^0.2.1:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/gulp-plugin-extras/-/gulp-plugin-extras-0.2.2.tgz#8f4af2c0acdc95aaac9dcd86e54f200a6e2842c4"
+  dependencies:
+    "@types/vinyl" "^2.0.9"
+    chalk "^5.3.0"
+    easy-transform-stream "^1.0.1"
+
 gulp-plumber@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/gulp-plumber/-/gulp-plumber-1.2.1.tgz#d38700755a300b9d372318e4ffb5ff7ced0b2c84"
@@ -2424,18 +2447,16 @@ gulp-sass@^5.1.0:
     strip-ansi "^6.0.1"
     vinyl-sourcemaps-apply "^0.2.1"
 
-gulp-size@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/gulp-size/-/gulp-size-4.0.1.tgz#018ad1b34bd18bba4c36bcefe2d5fbdbeae73918"
+gulp-size@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-size/-/gulp-size-5.0.0.tgz#db78bf0290ca318f7a55abc3321ac4dbbeede9ea"
   dependencies:
     brotli-size "^4.0.0"
-    chalk "^4.1.1"
-    fancy-log "^1.3.3"
-    gzip-size "^6.0.0"
-    plugin-error "^1.0.1"
-    pretty-bytes "^5.6.0"
-    stream-counter "^1.0.0"
-    through2 "^4.0.2"
+    chalk "^5.3.0"
+    fancy-log "^2.0.0"
+    gulp-plugin-extras "^0.2.1"
+    gzip-size "^7.0.0"
+    pretty-bytes "^6.1.1"
 
 gulp-util@^3.0.8:
   version "3.0.8"
@@ -2494,9 +2515,9 @@ gulplog@^2.0.0:
   dependencies:
     glogg "^2.0.0"
 
-gzip-size@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/gzip-size/-/gzip-size-6.0.0.tgz#065367fd50c239c0671cbcbad5be3e2eeb10e462"
+gzip-size@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/gzip-size/-/gzip-size-7.0.0.tgz#9f9644251f15bc78460fccef4055ae5a5562ac60"
   dependencies:
     duplexer "^0.1.2"
 
@@ -4265,6 +4286,10 @@ pretty-bytes@^5.6.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.6.0.tgz#356256f643804773c82f64723fe78c92c62beaeb"
 
+pretty-bytes@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-6.1.1.tgz#38cd6bb46f47afbf667c202cfc754bffd2016a3b"
+
 pretty-hrtime@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
@@ -4848,10 +4873,6 @@ static-extend@^0.1.1:
   dependencies:
     define-property "^0.2.5"
     object-copy "^0.1.0"
-
-stream-counter@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/stream-counter/-/stream-counter-1.0.0.tgz#91cf2569ce4dc5061febcd7acb26394a5a114751"
 
 stream-exhaust@^1.0.1:
   version "1.0.2"
